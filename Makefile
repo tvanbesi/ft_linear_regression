@@ -49,7 +49,7 @@ $(OBJ_DIR)/%.o:		$(SRC_DIR)/%.cpp $(INCS)
 
 all:        	    $(TARGET)
 
-$(TARGET):			$(OBJS)
+$(TARGET):			$(OBJS) main_src/estimate.cpp main_src/train.cpp
 					ar rc $(TARGET) $(OBJS)
 					$(CC) $(CPPFLAGS) -o estimate.out main_src/estimate.cpp $(TARGET) -Iinc
 					$(CC) $(CPPFLAGS) -o train.out main_src/train.cpp $(TARGET) -Iinc
