@@ -1,5 +1,5 @@
 # Target
-TARGET := ft_linear_regression.out
+TARGET := libft_linear_regression.a
 
 # Libraries
 LIBS :=
@@ -50,7 +50,9 @@ $(OBJ_DIR)/%.o:		$(SRC_DIR)/%.cpp $(INCS)
 all:        	    $(TARGET)
 
 $(TARGET):			$(OBJS)
-					$(CC) $(CPPFLAGS) -o $(TARGET) $(OBJS) $(LIBS)
+					ar rc $(TARGET) $(OBJS)
+					$(CC) $(CPPFLAGS) -o estimate.out main_src/estimate.cpp $(TARGET) -Iinc
+					$(CC) $(CPPFLAGS) -o train.out main_src/train.cpp $(TARGET) -Iinc
 
 $(OBJS):			| $(OBJ_DIRS)
 
@@ -61,7 +63,7 @@ clean:
 					$(RM) $(OBJS)
 
 fclean:				clean
-					$(RM) $(TARGET)
+					$(RM) $(TARGET) estimate.out train.out
 
 re:					fclean all
 
