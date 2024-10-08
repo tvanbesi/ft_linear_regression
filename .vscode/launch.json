@@ -10,8 +10,8 @@
 			"request": "launch",
 			"program": "${workspaceFolder}/train.out",
 			"args": [
-				"0.001",
-				"10000"
+				"0.1",
+				"100"
 			],
 			"cwd": "${workspaceFolder}",
 			"preLaunchTask": "build",
