@@ -15,13 +15,13 @@ std::vector<CarData> read_dataset(const std::string& filename)
         std::istringstream iss(line);
         std::string token;
 
-        unsigned int mileage;
-        unsigned int price;
+        double mileage;
+        double price;
 
         std::getline(iss, token, ',');
-        mileage = std::stoul(token);
+        mileage = std::stod(token);
         std::getline(iss, token, ',');
-        price = std::stoul(token);
+        price = std::stod(token);
 
         data.push_back({.mileage = mileage, .price = price});
     }

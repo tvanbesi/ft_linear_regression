@@ -1,3 +1,4 @@
 obj/*
 *.a
 *.out
+training_output.txt

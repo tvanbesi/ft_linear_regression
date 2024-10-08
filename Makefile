@@ -10,7 +10,7 @@ LIBS :=
 MODE ?= debug
 
 # Compiler
-CC = g++
+CC = c++
 ERRFLAGS := -Wall -Wextra -Werror
 CPPFLAGS := $(ERRFLAGS)
 CPPFLAGS += -std=c++17

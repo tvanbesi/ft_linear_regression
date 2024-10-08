@@ -1,3 +1,3 @@
 #pragma once
 
-unsigned int estimate_price(unsigned int mileage, double theta0, double theta1);
+double estimate_price(double mileage, double a, double b);
