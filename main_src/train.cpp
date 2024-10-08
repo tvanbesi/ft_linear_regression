@@ -1,5 +1,6 @@
 #include "ft_linear_regression.hpp"
 #include "standardize.hpp"
+#include "unstandardize_affine_function.hpp"
 #include <iostream>
 
 static void print_manual(const std::string& exec_name)
@@ -17,10 +18,14 @@ int main(int argc, char* argv[])
     unsigned int iterations = std::stoul(argv[2]);
 
     double a{0.0}, b{0.0};
-    auto dataset{standardize_dataset(read_dataset("res/data.csv"))};
+    auto dataset{read_dataset("res/data.csv")};
+    auto standardized_dataset{standardize_dataset(dataset)};
 
-    train_model(dataset, a, b, learning_rate, iterations);
+    train_model(standardized_dataset, a, b, learning_rate, iterations);
     print_gnuplot_input(a, b);
+
+    auto unstandardized_affine{unstandardize_affine_function(
+        a, b, get_mean(dataset), get_standard_deviation(get_variance(dataset, get_mean(dataset))))};
 
     return 0;
 }

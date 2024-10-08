@@ -7,7 +7,7 @@ void print_gnuplot_input(const double& a, const double& b)
 }
 
 void train_model(const std::vector<CarData>& dataset, double& a, double& b,
-                 const double learning_rate, const unsigned int iterations)
+                 const double& learning_rate, const unsigned int& iterations)
 {
     const double m{static_cast<double>(dataset.size())};
     const double factor{learning_rate / m};
